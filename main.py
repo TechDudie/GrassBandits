@@ -27,6 +27,12 @@ def form():
     return load("portal_login.html")
   else:
     print(request.form)
-    return load("portal.html")
+    if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
+      try:
+        job_id = int(request.form["id"])
+        jobs.pop(job_id)
+      except:
+        pass
+      return load("portal.html").replace("USERNAME", USERNAME).replace("PASSWORD", PASSWORD)
 
 app.run(host='0.0.0.0', port=8080)
