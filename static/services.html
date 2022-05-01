@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>GrassBandits</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --secondary-color: #0f0;
+  --contrast-color: #000;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: -10;
+  background-color: var(--contrast-color);
+}
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  color: #000;
+  animation: expand .8s ease forwards;
+  background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(0,191,0,1) 50%, rgba(0,255,0,1) 100%);
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: all .8s ease;
+}
+.container_content {
+ width: 50%;
+}
+.container_content_inner {
+  width: 80%;
+  margin-left: 80px;
+}
+.container_outer_img {
+  margin: 50px;
+  width: 50%;
+  overflow: hidden;
+}
+.container_img {
+  width: 100%;
+  animation: slideIn 1.5s ease-in-out forwards;
+}
+.par {
+  height: auto;
+  overflow: hidden;
+}
+p {
+  line-height: 28px;
+  transform: translateY(300px);
+  animation: slideUp .8s ease-in-out forwards .8s;
+}
+.btns {
+  height: 100%;
+  position: relative;
+  width: 150px;
+  overflow: hidden;
+}
+.btns_more {
+  background: transparent;
+  border: 1px solid var(--contrast-color);
+  border-radius: 50px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 15px;
+  outline: none;
+  transform: translateY(50px);
+  animation: slideUp .8s ease-in-out  forwards 1s;
+}
+.title {
+  overflow: hidden;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+    font-size: 40px;
+    color: var(--contrast-color);
+    margin-bottom: 20px;
+    transform: translateY(100px);
+    animation: slideUp .8s ease forwards .5s;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(500px) scale(.2);
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+</style>
+</head>
+<body>
+<div class= 'container'>
+<div class="container_content">
+<div class="container_content_inner">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="title">
+<h1>GrassBandits - Services</h1>
+</div>
+<div class="par">
+<p>
+We provide many essential lawn care services to the Fairway Triangle, at a reasonable price. Contact us by email, or fill out the form to request our services, and we will respond to you shortly.
+</p>
+</div>
+<div class="btns">
+<ul>
+<li>- Lawnmowing</li>
+<li>- Gardening</li>
+<li>- Trimming</li>
+<li>- Blowing</li>
+<li>- Weeding</li>
+<li>- Watering</li>
+</ul>
+<br>
+<a class='btns_more' href="mailto:tompseymour@gmail.com?subject=Buisness&body=I%20want%20to%20hire%20you%2E%0A%0AAddress%3A%20%0AJob%20Type%3A%0A%0AWe%20will%20reply%20to%20you%20soon%20with%20your%20estamated%20cost%2E%0AHave%20a%20nice%20day%21%0A%2DGrassBandits">Email</a>
+<br>
+<br>
+<br>
+<a class='btns_more' href="form.html">Service Form</a>
+</div>
+</div>
+</div>
+<div class="container_outer_img">
+<div class="img-inner">
+<!--<img width="475" height="365" src="logo.png">-->
+</div>
+</div>
+</div>
+<div class="overlay"></div>
+<script>
+</script>
+</body>
+</html>
