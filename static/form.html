@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>GrassBandits Service Form</title>
+<style>
+body {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(0,191,0,1) 50%, rgba(0,255,0,1) 100%);
+}
+div {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form {
+  display: inline-block;
+}
+input {
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<div>
+<form method="POST">
+<input type="email" name="email" pattern="^[A-Za-z0-9]+@[A-Za-z0-9]+\.(com|org)$" placeholder="Email">
+<br>
+<br>
+<input type="tel" name="phone" pattern="^[0-9]{3}-?[0-9]{3}-?[0-9]{4}$" placeholder="Phone Number">
+<br>
+<br>
+<input type="text" name="job_desc" placeholder="Job Description">
+<br>
+<br>
+<select name="job_type">
+<option value="lawnmowing">Lawnmowing</option>
+<option value="gardening">Gardening</option>
+<option value="trimming">Trimming</option>
+<option value="blowing">Blowing</option>
+<option value="weeding">Weeding</option>
+<option value="watering">Watering</option>
+</select>
+<br>
+<br>
+<input type="text" name="addr" placeholder="Address">
+<br>
+<br>
+<input type="datetime-local" name="datetime">
+<br>
+<br>
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>
