@@ -1,7 +1,4 @@
 from flask import Flask, request, send_from_directory
-#import threading
-#import json
-#import time
 
 USERNAME = "TechnoDot"
 PASSWORD = "hwgSUX69420"
@@ -11,22 +8,6 @@ jobs = []
 feedback = []
 
 load = lambda file: open(file).read()
-
-#try:
-#  jobs = json.loads(load("/home/TechDude/grassbandits/save.json"))
-#  print("JSON save loaded")
-#except:
-#  jobs = []
-
-#def save():
-#  while True:
-#    time.sleep(30)
-#    file_h = open("save.json", "w")
-#    file_h.write(json.dumps(jobs))
-#    file_h.close()
-
-#save_thread = threading.Thread(target=save)
-#save_thread.start()
 
 @app.route('/<path:path>')
 def static_(path):
@@ -96,4 +77,3 @@ def feedbk():
   if request.method == "POST":
     feedback.append(request.form)
     return load("/home/TechDude/grassbandits/static/thankyou.html")
-
