@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>GrassBandits Service Form</title>
+<style>
+body {
+  background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(0,191,0,1) 50%, rgba(0,255,0,1) 100%);
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+input[type=username], input[type=password] {
+  display: none;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: white;}
+#customers tr:hover {background-color: #ddd;}
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0d0;
+  color: white;
+}
+</style>
+</head>
+<body>
+INSERT_LIST_HERE
+<form method="POST">
+<input name="id" type="number" value="9999">
+<input name="username" type="username" value="USERNAME">
+<input name="password" type="password" value="PASSWORD">
+<input type="submit" value="Mark as Done">
+</form>
+<form method="POST">
+<input name="username" type="username" value="USERNAME">
+<input name="password" type="password" value="PASSWORD">
+<input type="submit" value="Reload">
+</form>
+</body>
+</html>
