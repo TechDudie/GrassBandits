@@ -62,7 +62,7 @@ def portal():
       fdbk = '<table id="customers"><th>Email</th><th>Stars</th><th>Review</th>'
       for review in feedback:
         fdbk += "<tr>"
-        for info in review:
+        for info in review.values():
           fdbk += "<td>" + str(info) + "</td>"
         fdbk += "</tr>"
       fdbk += "</table>"
