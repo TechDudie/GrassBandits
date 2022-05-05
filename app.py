@@ -32,7 +32,7 @@ def form():
 @app.route('/portal.html', methods=["GET", "POST"])
 def portal():
   if request.method == "GET":
-    return load("/home/TechDude/grassbandits/dynamic/portal_login.html")
+    return load("/home/TechDude/grassbandits/static/portal_login.html")
   else:
     print(request.form)
     if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
@@ -68,7 +68,7 @@ def portal():
       fdbk += "</table>"
       return html.replace("INSERT_LIST_HERE", insert).replace("FEEDBACK", fdbk)
     else:
-      return load("/home/TechDude/grassbandits/dynamic/portal_login.html")
+      return load("/home/TechDude/grassbandits/static/portal_login.html")
 
 @app.route("/feedback.html", methods=["GET", "POST"])
 def feedbk():
