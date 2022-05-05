@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>GrassBandits Service Form</title>
+<style>
+body {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(0,191,0,1) 0%, rgba(0,143,0,1) 50%, rgba(0,191,0,1) 100%);
+}
+div {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form {
+  display: inline-block;
+}
+input {
+  width: 25%;
+}
+</style>
+</head>
+<body>
+<div>
+<form method="POST">
+<input type="email" name="email" placeholder="Email">
+<br>
+<input type="number" name="stars" placeholder="Stars">
+<br>
+<input type="text" name="review" placeholder="Review">
+<br>
+<br>
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>
