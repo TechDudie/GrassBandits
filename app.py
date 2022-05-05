@@ -75,5 +75,6 @@ def feedbk():
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/feedback.html")
   if request.method == "POST":
+    print(request.form)
     feedback.append(request.form)
     return load("/home/TechDude/grassbandits/static/thankyou.html")
