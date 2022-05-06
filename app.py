@@ -82,4 +82,9 @@ def feedbk():
 
 @app.route("/reviews.html")
 def reviewz():
-  return load("/home/TechDude/grassbandits/dynamic/reviews.html")
+  html = load("/home/TechDude/grassbandits/dynamic/reviews.html")
+  insert = ""
+  for view in feedback[-4:]:
+    stars = '<span>&bigstar;</span>' * int(view["stars"])
+    insert += '<div class="mySlides w3-container w3-xlarge w3-white w3-card-4">' + stars + '<p>' + view["review"] + '</p></div>'
+  return html.replace("REVIEW", insert)
