@@ -3,11 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-.mySlides {display:none;}
+body {background: linear-gradient(90deg, rgba(0,191,0,1) 0%, rgba(0,143,0,1) 50%, rgba(0,191,0,1) 100%);text-align:center;}
+.mySlides {display:none;text-align:center;}
+span {font-size:500%;color:gold;}
+a {
+  background: transparent;
+  border: 1px solid var(--contrast-color);
+  border-radius: 50px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 15px;
+  outline: none;
+  transform: translateY(50px);
+  animation: slideUp .8s ease-in-out forwards 1s;
+  text-decoration: none;
+}
 </style>
 <body>
 <h2 class="w3-center">GrassBandits Reviews</h2>
-<div class="w3-content" style="max-width:400px">REVIEW</div>
+<div class="w3-content" style="max-width:800px">REVIEW</div>
 <script>
 var slideIndex = 0;
 carousel();
@@ -20,8 +37,9 @@ function carousel() {
   slideIndex++;
   if (slideIndex > x.length) {slideIndex = 1}
   x[slideIndex-1].style.display = "block";
-  setTimeout(carousel, 2000);
+  setTimeout(carousel, 5000);
 }
 </script>
+<a href="index.html">Home</a>
 </body>
 </html>
