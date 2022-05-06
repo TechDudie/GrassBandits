@@ -79,3 +79,7 @@ def feedbk():
     print(request.form)
     feedback.append(request.form)
     return load("/home/TechDude/grassbandits/static/thankyou.html")
+
+@app.route("/reviews.html")
+def reviewz():
+  return load("/home/TechDude/grassbandits/dynamic/reviews.html")

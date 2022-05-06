@@ -25,12 +25,12 @@ input {
 </head>
 <body>
 <div>
-<form method="POST">
+<form id="form" method="POST">
 <input type="email" name="email" placeholder="Email">
 <br>
-<input type="number" name="stars" placeholder="Stars">
+<input type="number" name="stars" placeholder="Stars" min="1" max="5">
 <br>
-<input type="text" name="review" placeholder="Review">
+<textarea form="form" name="review" placeholder="Review">Insert your review here...</textarea>
 <br>
 <br>
 <input type="submit" value="Submit">

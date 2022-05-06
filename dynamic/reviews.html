@@ -1,0 +1,47 @@
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body>
+
+<h2 class="w3-center">HTML slides</h2>
+
+<div class="w3-content" style="max-width:400px">
+  <div class="mySlides w3-container w3-red">
+    <h1><b>Did You Know?</b></h1>
+    <h1><i>We plan to sell trips to the moon in the 2020s</i></h1>
+  </div>
+
+  <img class="mySlides" src="img_monterosso.jpg" style="width:100%">
+
+  <div class="mySlides w3-container w3-xlarge w3-white w3-card-4">
+    <p><span class="w3-tag w3-yellow">New!</span>
+    <p>6 Crystal Glasses</p>
+    <p>Only $99 !!!</p>
+  </div>
+
+  <img class="mySlides" src="img_manarola.jpg" style="width:100%">
+</div>
+
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000);
+}
+</script>
+
+</body>
+</html>
