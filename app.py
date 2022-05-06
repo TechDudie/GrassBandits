@@ -1,8 +1,9 @@
 from flask import Flask, request, send_from_directory
 
 USERNAME = "TechnoDot"
-PASSWORD = "hwgSUX69420"
+PASSWORD = "hwgSUX69420" # PLEASE STEAL THIS PASSWORD
 
+global app
 app = Flask('app')
 jobs = []
 feedback = []
