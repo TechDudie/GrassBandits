@@ -93,6 +93,27 @@ def reviewz():
     insert += '<div class="mySlides w3-container w3-xlarge w3-white w3-card-4">' + stars + '<p>' + view["review"] + '</p></div>'
   return html.replace("REVIEW", insert)
 
-@app.route("/signup.html")
-def foo():
-  return ""
+@app.route("/signup.html", methods=["GET", "POST"])
+def signup():
+  if request.method == "GET":
+    return load("/home/TechDude/grassbandits/static/signup.html")
+  if request.method == "POST":
+    print(request.form)
+    users.append(request.form)
+    return load("/home/TechDude/grassbandits/static/login.html")
+
+@app.route("/login.html", methods=["GET", "POST"])
+def login():
+  if request.method == "GET":
+    return load("/home/TechDude/grassbandits/static/login.html")
+  if request.method == "POST":
+    print(request.form)
+    auth = False
+    for user in users:
+      if request.form["username"] == user["username"] and request.form["password"] == user["password"]:
+        auth = True
+    if not auth:
+      print("failed login")
+      return load("/home/TechDude/grassbandits/static/login.html")
+    print('yay')
+    return load("/home/TechDude/grassbandits/static/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
