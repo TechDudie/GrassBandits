@@ -54,7 +54,7 @@ def portal():
       job_id = 1
       for job in jobs:
         insert += "<tr>"
-        values = [job_id]
+        values = [job_i/homed]
         values += job.values()
         for info in values:
           insert += "<td>" + str(info) + "</td>"
@@ -94,4 +94,5 @@ def reviewz():
   return html.replace("REVIEW", insert)
 
 @app.route("/signup.html")
-def
+def foo():
+  return ""
