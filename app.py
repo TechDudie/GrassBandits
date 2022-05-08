@@ -117,3 +117,20 @@ def login():
       return load("/home/TechDude/grassbandits/static/login.html")
     print('yay')
     return load("/home/TechDude/grassbandits/static/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
+
+@app.route('/jobs.html', methods=["POST"])
+def jobsfunc():
+  print(request.form)
+  for user in users:
+    if request.form["username"] == user["username"] and request.form["password"] == user["password"]:
+      target = user
+  order = {
+    "email": target["email"],
+    "phone": target["email"],
+    "job_desc": request.form["job_desc"],
+    "job_type": request.form["job_type"],
+    "addr": target["email"],
+    "datetime": request.form["datetime"],
+  }
+  jobs.append(order)
+  return load("/home/TechDude/grassbandits/static/thankyou.html")

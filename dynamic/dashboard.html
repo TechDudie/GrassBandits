@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>GrassBandits Service Form</title>
+<style>
+body {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(0,191,0,1) 0%, rgba(0,143,0,1) 50%, rgba(0,191,0,1) 100%);
+}
+div {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+form {
+  display: inline-block;
+}
+input, select {
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+</style>
+</head>
+<body>
+<div>
+<h1>Welcome, USERNAME</h1>
+<form action="jobs.html" method="POST">
+<input class="hidden" type="text" name="username" value="USERNAME">
+<input class="hidden" type="text" name="password" value="PASSWORD">
+<input type="text" name="job_desc" placeholder="Job Description">
+<select name="job_type">
+<option value="lawnmowing">Lawnmowing</option>
+<option value="gardening">Gardening</option>
+<option value="trimming">Trimming</option>
+<option value="blowing">Blowing</option>
+<option value="weeding">Weeding</option>
+<option value="watering">Watering</option>
+</select>
+<br>
+<input type="datetime-local" name="datetime">
+<br>
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>
