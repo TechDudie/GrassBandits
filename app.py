@@ -68,7 +68,14 @@ def portal():
           fdbk += "<td>" + str(info) + "</td>"
         fdbk += "</tr>"
       fdbk += "</table>"
-      return html.replace("INSERT_LIST_HERE", insert).replace("FEEDBACK", fdbk)
+      usrs = '<table id="customers"><th>Email</th><th>Username</th><th>Phone</th><th>Address</th><th>Password</th>'
+      for usr in users:
+        usrs += "<tr>"
+        for info in usr.values():
+          usrs += "<td>" + str(info) + "</td>"
+        usrs  += "</tr>"
+      usrs += "</table>"
+      return html.replace("INSERT_LIST_HERE", insert).replace("FEEDBACK", fdbk).replace("USERS", usrs)
     else:
       return load("/home/TechDude/grassbandits/static/portal_login.html")
 
@@ -126,10 +133,10 @@ def jobsfunc():
       target = user
   order = {
     "email": target["email"],
-    "phone": target["email"],
+    "phone": target["phone"],
     "job_desc": request.form["job_desc"],
     "job_type": request.form["job_type"],
-    "addr": target["email"],
+    "addr": target["address"],
     "datetime": request.form["datetime"],
   }
   jobs.append(order)
