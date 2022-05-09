@@ -54,7 +54,7 @@ def portal():
       job_id = 1
       for job in jobs:
         insert += "<tr>"
-        values = [job_i/homed]
+        values = [job_id]
         values += job.values()
         for info in values:
           insert += "<td>" + str(info) + "</td>"
@@ -116,7 +116,7 @@ def login():
       print("failed login")
       return load("/home/TechDude/grassbandits/static/login.html")
     print('yay')
-    return load("/home/TechDude/grassbandits/static/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
+    return load("/home/TechDude/grassbandits/dynamic/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
 
 @app.route('/jobs.html', methods=["POST"])
 def jobsfunc():
