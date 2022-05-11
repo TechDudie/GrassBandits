@@ -10,7 +10,7 @@ feedback = []
 users = []
 
 load = lambda file: open(file).read()
-def id(req):
+def ip(req):
   print("[REQUEST] IP Address: " + req.remote_addr)
 def log(a, b=""):
   if b == "":
@@ -49,10 +49,10 @@ def portal():
   else:
     log("Attempted Login", request.form)
     if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
-      try:
-        log("Job Marked As Done", request.form["id"])
+      if "id" in request.form:
+        log("Job ID Recieved To Mark As Done", request.form["id"])
         job_id = int(request.form["id"])
-      except:
+      else:
         log("Authenication Successful", request.form)
       try:
         if job_id == 0:
