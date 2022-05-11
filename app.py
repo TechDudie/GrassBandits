@@ -52,14 +52,14 @@ def portal():
       if "id" in request.form:
         log("Job ID Recieved To Mark As Done", request.form["id"])
         job_id = int(request.form["id"])
-      else:
-        log("Authenication Successful", request.form)
-      try:
         if job_id == 0:
           del job_id
-        jobs.pop(job_id - 1)
-      except:
-        log("Cannot Mark Job As Done", request.form["id"])
+        try:
+          jobs.pop(job_id - 1)
+        except:
+          log("Cannot Mark Job As Done", request.form["id"])
+      else:
+        log("Authenication Successful", request.form)
       html = load("/home/TechDude/grassbandits/dynamic/portal.html").replace("USERNAME", USERNAME).replace("PASSWORD", PASSWORD)
       insert = '<table id="customers"><th>ID</th><th>Email</th><th>Phone</th><th>Job Desc</th><th>Job Type</th><th>Address</th><th>Date & Time</th>'
       job_id = 1
