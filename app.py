@@ -10,9 +10,17 @@ feedback = []
 users = []
 
 load = lambda file: open(file).read()
+def id(req):
+  print("[REQUEST] IP Address: " + req.remote_addr)
+def log(a, b=""):
+  if b == "":
+    print(str(a))
+  else:
+    print(str(a) + ": " + str(b))
 
 @app.route('/<path:path>')
 def static_(path):
+  ip(request)
   try:
     return send_from_directory('/home/TechDude/grassbandits/static', path)
   except:
@@ -20,35 +28,38 @@ def static_(path):
 
 @app.route('/')
 def root():
+  ip(request)
   return load("/home/TechDude/grassbandits/static/index.html")
 
 @app.route('/form.html', methods=["GET", "POST"])
 def form():
+  ip(request)
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/form.html")
   else:
-    print(request.form)
+    log("New Job", request.form)
     jobs.append(request.form)
     return load("/home/TechDude/grassbandits/static/thankyou.html")
 
 @app.route('/portal.html', methods=["GET", "POST"])
 def portal():
+  ip(request)
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/portal_login.html")
   else:
-    print(request.form)
+    log("Attempted Login", request.form)
     if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
       try:
-        print(request.form["id"])
+        log("Job Marked As Done", request.form["id"])
         job_id = int(request.form["id"])
       except:
-        print("Authenication successful")
+        log("Authenication Successful", request.form)
       try:
         if job_id == 0:
           del job_id
         jobs.pop(job_id - 1)
       except:
-        print("W@T D0 1 D31337???")
+        log("Cannot Mark Job As Done", request.form["id"])
       html = load("/home/TechDude/grassbandits/dynamic/portal.html").replace("USERNAME", USERNAME).replace("PASSWORD", PASSWORD)
       insert = '<table id="customers"><th>ID</th><th>Email</th><th>Phone</th><th>Job Desc</th><th>Job Type</th><th>Address</th><th>Date & Time</th>'
       job_id = 1
@@ -81,15 +92,17 @@ def portal():
 
 @app.route("/feedback.html", methods=["GET", "POST"])
 def feedbk():
+  ip(request)
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/feedback.html")
   if request.method == "POST":
-    print(request.form)
+    log("Feedback Recieved", request.form)
     feedback.append(request.form)
     return load("/home/TechDude/grassbandits/static/thankyou.html")
 
 @app.route("/reviews.html")
 def reviewz():
+  ip(request)
   html = load("/home/TechDude/grassbandits/dynamic/reviews.html")
   insert = ""
   for view in feedback[-4:]:
@@ -102,32 +115,35 @@ def reviewz():
 
 @app.route("/signup.html", methods=["GET", "POST"])
 def signup():
+  ip(request)
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/signup.html")
   if request.method == "POST":
-    print(request.form)
+    log("User Signed Up", request.form)
     users.append(request.form)
     return load("/home/TechDude/grassbandits/static/login.html")
 
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
+  ip(request)
   if request.method == "GET":
     return load("/home/TechDude/grassbandits/static/login.html")
   if request.method == "POST":
-    print(request.form)
+    log("Client Login Request Sent", request.form)
     auth = False
     for user in users:
       if request.form["username"] == user["username"] and request.form["password"] == user["password"]:
         auth = True
     if not auth:
-      print("failed login")
+      log("Invalid Client Login", request.form)
       return load("/home/TechDude/grassbandits/static/login.html")
-    print('yay')
+    log("Successful Client Login", request.form)
     return load("/home/TechDude/grassbandits/dynamic/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
 
 @app.route('/jobs.html', methods=["POST"])
 def jobsfunc():
-  print(request.form)
+  ip(request)
+  log("Job From Client Recieved", request.form)
   for user in users:
     if request.form["username"] == user["username"] and request.form["password"] == user["password"]:
       target = user
@@ -140,5 +156,6 @@ def jobsfunc():
     "datetime": request.form["datetime"],
   }
   del target
+  log("Order", order)
   jobs.append(order)
   return load("/home/TechDude/grassbandits/static/thankyou.html")
