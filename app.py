@@ -159,3 +159,5 @@ def jobsfunc():
   log("Order", order)
   jobs.append(order)
   return load("/home/TechDude/grassbandits/static/thankyou.html")
+
+# END APP
