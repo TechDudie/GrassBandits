@@ -22,30 +22,30 @@ def log(a, b=""):
 def static_(path):
   ip(request)
   try:
-    return send_from_directory('/Users/wenqianwang/grassbandits/static', path)
+    return send_from_directory('/Users/wenqianwang/Desktop/grassbandits/static', path)
   except:
-    return load('/Users/wenqianwang/grassbandits/static/404.html')
+    return load('/Users/wenqianwang/Desktop/grassbandits/static/404.html')
 
 @app.route('/')
 def root():
   ip(request)
-  return load("/Users/wenqianwang/grassbandits/static/index.html")
+  return load("/Users/wenqianwang/Desktop/grassbandits/static/index.html")
 
 @app.route('/form.html', methods=["GET", "POST"])
 def form():
   ip(request)
   if request.method == "GET":
-    return load("/Users/wenqianwang/grassbandits/static/form.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/form.html")
   else:
     log("New Job", request.form)
     jobs.append(request.form)
-    return load("/Users/wenqianwang/grassbandits/static/thankyou.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/thankyou.html")
 
 @app.route('/portal.html', methods=["GET", "POST"])
 def portal():
   ip(request)
   if request.method == "GET":
-    return load("/Users/wenqianwang/grassbandits/static/portal_login.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/portal_login.html")
   else:
     log("Attempted Login", request.form)
     if request.form["username"] == USERNAME and request.form["password"] == PASSWORD:
@@ -60,7 +60,7 @@ def portal():
           log("Cannot Mark Job As Done", request.form["id"])
       else:
         log("Authenication Successful", request.form)
-      html = load("/Users/wenqianwang/grassbandits/dynamic/portal.html").replace("USERNAME", USERNAME).replace("PASSWORD", PASSWORD)
+      html = load("/Users/wenqianwang/Desktop/grassbandits/dynamic/portal.html").replace("USERNAME", USERNAME).replace("PASSWORD", PASSWORD)
       insert = '<table id="customers"><th>ID</th><th>Email</th><th>Phone</th><th>Job Desc</th><th>Job Type</th><th>Address</th><th>Date & Time</th>'
       job_id = 1
       for job in jobs:
@@ -88,22 +88,22 @@ def portal():
       usrs += "</table>"
       return html.replace("INSERT_LIST_HERE", insert).replace("FEEDBACK", fdbk).replace("USERS", usrs)
     else:
-      return load("/Users/wenqianwang/grassbandits/static/portal_login.html")
+      return load("/Users/wenqianwang/Desktop/grassbandits/static/portal_login.html")
 
 @app.route("/feedback.html", methods=["GET", "POST"])
 def feedbk():
   ip(request)
   if request.method == "GET":
-    return load("/Users/wenqianwang/grassbandits/static/feedback.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/feedback.html")
   if request.method == "POST":
     log("Feedback Recieved", request.form)
     feedback.append(request.form)
-    return load("/Users/wenqianwang/grassbandits/static/thankyou.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/thankyou.html")
 
 @app.route("/reviews.html")
 def reviewz():
   ip(request)
-  html = load("/Users/wenqianwang/grassbandits/dynamic/reviews.html")
+  html = load("/Users/wenqianwang/Desktop/grassbandits/dynamic/reviews.html")
   insert = ""
   for view in feedback[-4:]:
     try:
@@ -117,17 +117,17 @@ def reviewz():
 def signup():
   ip(request)
   if request.method == "GET":
-    return load("/Users/wenqianwang/grassbandits/static/signup.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/signup.html")
   if request.method == "POST":
     log("User Signed Up", request.form)
     users.append(request.form)
-    return load("/Users/wenqianwang/grassbandits/static/login.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/login.html")
 
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
   ip(request)
   if request.method == "GET":
-    return load("/Users/wenqianwang/grassbandits/static/login.html")
+    return load("/Users/wenqianwang/Desktop/grassbandits/static/login.html")
   if request.method == "POST":
     log("Client Login Request Sent", request.form)
     auth = False
@@ -136,9 +136,9 @@ def login():
         auth = True
     if not auth:
       log("Invalid Client Login", request.form)
-      return load("/Users/wenqianwang/grassbandits/static/login.html")
+      return load("/Users/wenqianwang/Desktop/grassbandits/static/login.html")
     log("Successful Client Login", request.form)
-    return load("/Users/wenqianwang/grassbandits/dynamic/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
+    return load("/Users/wenqianwang/Desktop/grassbandits/dynamic/dashboard.html").replace("USERNAME", request.form["username"]).replace("PASSWORD", request.form["password"])
 
 @app.route('/jobs.html', methods=["POST"])
 def jobsfunc():
@@ -158,6 +158,6 @@ def jobsfunc():
   del target
   log("Order", order)
   jobs.append(order)
-  return load("/Users/wenqianwang/grassbandits/static/thankyou.html")
+  return load("/Users/wenqianwang/Desktop/grassbandits/static/thankyou.html")
 
 # END APP
