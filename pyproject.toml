@@ -6,7 +6,7 @@ authors = ["TechnoDot <techdudie@mail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.0.2"
+Flask = "^2.2.5"
 
 [tool.poetry.dev-dependencies]
 
